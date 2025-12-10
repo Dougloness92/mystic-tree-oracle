@@ -43,7 +43,7 @@ export const OracleModal = ({ isOpen, onClose }: OracleModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-2xl bg-background border-secondary/30 overflow-hidden">
-        <DialogTitle className="sr-only">Oracle of the Tree of Life</DialogTitle>
+        <DialogTitle className="sr-only">Oráculo da Árvore da Vida</DialogTitle>
         <button
           onClick={onClose}
           className="absolute right-4 top-4 text-muted-foreground hover:text-foreground transition-colors z-10"
@@ -66,17 +66,17 @@ export const OracleModal = ({ isOpen, onClose }: OracleModalProps) => {
           {state === "intro" && (
             <div className="relative z-10 text-center animate-fade-in">
               <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6">
-                Oracle of the Tree of Life
+                Oráculo da Árvore da Vida
               </h2>
               <p className="text-muted-foreground text-lg mb-8 max-w-md mx-auto leading-relaxed">
-                The ten Sephiroth hold ancient wisdom waiting to guide you. 
-                Clear your mind and receive a message from the Tree.
+                As dez Sephiroth guardam sabedoria ancestral esperando para guiá-lo. 
+                Limpe sua mente e receba uma mensagem da Árvore.
               </p>
               <Button
                 onClick={startReading}
                 className="btn-mystical bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg"
               >
-                Receive Guidance
+                Receber Orientação
               </Button>
             </div>
           )}
@@ -85,10 +85,10 @@ export const OracleModal = ({ isOpen, onClose }: OracleModalProps) => {
           {state === "meditating" && (
             <div className="relative z-10 text-center animate-fade-in">
               <p className="font-display text-2xl text-foreground mb-4 italic">
-                Take a breath...
+                Respire fundo...
               </p>
               <p className="text-muted-foreground text-lg mb-8">
-                Bring to mind an area of your life that needs clarity.
+                Traga à mente uma área da sua vida que precisa de clareza.
               </p>
               <div className="w-20 h-20 rounded-full border-2 border-secondary flex items-center justify-center animate-pulse-slow">
                 <span className="font-display text-3xl text-secondary">{countdown}</span>
@@ -127,7 +127,7 @@ export const OracleModal = ({ isOpen, onClose }: OracleModalProps) => {
 
               <div className="bg-muted/50 rounded-lg p-4 mb-6">
                 <p className="text-accent font-medium text-lg">
-                  Affirmation: {card.affirmation}
+                  Afirmação: {card.affirmation}
                 </p>
               </div>
 
@@ -140,13 +140,13 @@ export const OracleModal = ({ isOpen, onClose }: OracleModalProps) => {
                   variant="outline"
                   className="border-secondary/50 text-foreground hover:bg-secondary/10"
                 >
-                  Draw Again
+                  Tirar Novamente
                 </Button>
                 <Button
                   onClick={onClose}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
-                  Book a Personal Reading
+                  Agendar Leitura Pessoal
                 </Button>
               </div>
             </div>

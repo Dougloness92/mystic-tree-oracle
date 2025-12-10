@@ -3,6 +3,14 @@ import { Mail, Phone, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { SacredGeometry } from "./SacredGeometry";
 
+const quickLinks = [
+  { name: "Serviços", path: "/services" },
+  { name: "Oráculo", path: "/oracle" },
+  { name: "Blog", path: "/blog" },
+  { name: "Sobre", path: "/about" },
+  { name: "Contato", path: "/contact" },
+];
+
 export const Footer = () => {
   return (
     <footer className="relative bg-card border-t border-border/50">
@@ -12,23 +20,23 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo & Description */}
           <div className="text-center md:text-left">
-            <img src={logo} alt="Celestial Path" className="h-20 w-auto mx-auto md:mx-0 mb-4" />
+            <img src={logo} alt="Caminho Celestial" className="h-20 w-auto mx-auto md:mx-0 mb-4" />
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Guidance through Tarot, Astrology, and the sacred wisdom of the Tree of Life.
+              Orientação através do Tarot, Astrologia e a sabedoria sagrada da Árvore da Vida.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="text-center">
-            <h3 className="font-display text-xl text-foreground mb-6">Quick Links</h3>
+            <h3 className="font-display text-xl text-foreground mb-6">Links Rápidos</h3>
             <nav className="space-y-3">
-              {["Services", "Oracle", "Blog", "About", "Contact"].map((item) => (
+              {quickLinks.map((item) => (
                 <Link
-                  key={item}
-                  to={`/${item.toLowerCase()}`}
+                  key={item.name}
+                  to={item.path}
                   className="block text-muted-foreground hover:text-primary transition-colors text-lg"
                 >
-                  {item}
+                  {item.name}
                 </Link>
               ))}
             </nav>
@@ -36,7 +44,7 @@ export const Footer = () => {
 
           {/* Contact */}
           <div className="text-center md:text-right">
-            <h3 className="font-display text-xl text-foreground mb-6">Connect</h3>
+            <h3 className="font-display text-xl text-foreground mb-6">Conecte-se</h3>
             <div className="space-y-4">
               <a
                 href="https://wa.me/1234567890"
@@ -48,7 +56,7 @@ export const Footer = () => {
                 <span>WhatsApp</span>
               </a>
               <a
-                href="mailto:hello@celestialpath.com"
+                href="mailto:contato@caminhocelestial.com"
                 className="flex items-center justify-center md:justify-end gap-3 text-muted-foreground hover:text-secondary transition-colors text-lg"
               >
                 <Mail size={20} />
@@ -70,7 +78,7 @@ export const Footer = () => {
         <SacredGeometry variant="divider" className="my-8" />
 
         <p className="text-center text-muted-foreground">
-          © {new Date().getFullYear()} Celestial Path Holistic Therapy. All rights reserved.
+          © {new Date().getFullYear()} Caminho Celestial Terapia Holística. Todos os direitos reservados.
         </p>
       </div>
     </footer>

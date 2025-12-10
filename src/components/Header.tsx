@@ -4,12 +4,12 @@ import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "About", path: "/about" },
-  { name: "Services", path: "/services" },
-  { name: "Oracle", path: "/oracle" },
+  { name: "Início", path: "/" },
+  { name: "Sobre", path: "/about" },
+  { name: "Serviços", path: "/services" },
+  { name: "Oráculo", path: "/oracle" },
   { name: "Blog", path: "/blog" },
-  { name: "Contact", path: "/contact" },
+  { name: "Contato", path: "/contact" },
 ];
 
 export const Header = () => {
@@ -21,7 +21,7 @@ export const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <img src={logo} alt="Celestial Path" className="h-14 w-auto" />
+            <img src={logo} alt="Caminho Celestial" className="h-14 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -41,7 +41,7 @@ export const Header = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 text-foreground"
-            aria-label="Toggle menu"
+            aria-label="Alternar menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>

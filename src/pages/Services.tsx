@@ -7,32 +7,32 @@ import { SacredGeometry } from "@/components/SacredGeometry";
 
 const services = [
   {
-    title: "Tarot Guidance",
-    description: "Deep archetypal exploration using the Tarot to illuminate your current situation, challenges, and opportunities for growth.",
+    title: "Orientação com Tarot",
+    description: "Exploração arquetípica profunda usando o Tarot para iluminar sua situação atual, desafios e oportunidades de crescimento.",
     icon: Sparkles,
     href: "/services/tarot",
   },
   {
-    title: "Astrology Readings",
-    description: "Comprehensive birth chart analysis revealing your cosmic blueprint, life themes, and current planetary influences.",
+    title: "Leituras de Astrologia",
+    description: "Análise completa do mapa astral revelando seu projeto cósmico, temas de vida e influências planetárias atuais.",
     icon: Star,
     href: "/services/astrology",
   },
   {
-    title: "Kabbalistic Numerology",
-    description: "Discover your life path number, personal year cycles, and the sacred mathematics underlying your journey.",
+    title: "Numerologia Cabalística",
+    description: "Descubra seu número do caminho de vida, ciclos de anos pessoais e a matemática sagrada subjacente à sua jornada.",
     icon: Compass,
     href: "/services/numerology",
   },
   {
-    title: "Dowsing & Energetic Cleansing",
-    description: "Space clearing, energy balancing, and dowsing work to harmonize your environment and personal energy field.",
+    title: "Radiestesia e Limpeza Energética",
+    description: "Limpeza de espaços, equilíbrio energético e trabalho com radiestesia para harmonizar seu ambiente e campo de energia pessoal.",
     icon: Droplets,
     href: "/services/dowsing",
   },
   {
-    title: "Combined Sessions",
-    description: "Integrative sessions blending multiple modalities for a comprehensive, multi-dimensional reading experience.",
+    title: "Sessões Combinadas",
+    description: "Sessões integrativas combinando múltiplas modalidades para uma experiência de leitura abrangente e multidimensional.",
     icon: Layers,
     href: "/services/combined",
   },
@@ -50,11 +50,11 @@ const Services = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-6">
-              Sacred Services
+              Serviços Sagrados
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Each session is a sacred container for exploration, healing, and transformation. 
-              Choose the modality that calls to you, or explore a combined approach.
+              Cada sessão é um recipiente sagrado para exploração, cura e transformação. 
+              Escolha a modalidade que chama você, ou explore uma abordagem combinada.
             </p>
           </div>
         </div>
@@ -77,16 +77,16 @@ const Services = () => {
           <div className="max-w-3xl mx-auto text-center">
             <SacredGeometry variant="divider" className="mb-8" />
             <h2 className="font-display text-3xl text-foreground mb-6">
-              What to Expect
+              O Que Esperar
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Sessions are available online via video call or in person. Each session begins 
-              with a grounding meditation to create sacred space. You're welcome to bring 
-              specific questions or simply arrive open to receive guidance.
+              As sessões estão disponíveis online via videochamada ou presencialmente. Cada sessão começa 
+              com uma meditação de ancoragem para criar um espaço sagrado. Você pode trazer 
+              perguntas específicas ou simplesmente chegar aberto para receber orientação.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              All sessions are confidential. I honor your journey with respect, compassion, 
-              and a commitment to your highest good.
+              Todas as sessões são confidenciais. Honro sua jornada com respeito, compaixão 
+              e compromisso com seu bem maior.
             </p>
             <SacredGeometry variant="divider" className="mt-8" />
           </div>

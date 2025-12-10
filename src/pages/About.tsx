@@ -15,10 +15,10 @@ const About = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-6">
-              About Me
+              Sobre Mim
             </h1>
             <p className="text-xl text-muted-foreground">
-              A journey of transformation through earth and shadow
+              Uma jornada de transformação através da terra e da sombra
             </p>
           </div>
         </div>
@@ -31,18 +31,18 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="text-center p-6 rounded-lg bg-background">
                 <Sun className="w-12 h-12 text-secondary mx-auto mb-4" />
-                <h3 className="font-display text-xl text-foreground mb-2">Taurus Sun</h3>
-                <p className="text-muted-foreground">Grounded presence, patient guidance, earthly wisdom</p>
+                <h3 className="font-display text-xl text-foreground mb-2">Sol em Touro</h3>
+                <p className="text-muted-foreground">Presença enraizada, orientação paciente, sabedoria terrena</p>
               </div>
               <div className="text-center p-6 rounded-lg bg-background">
                 <Moon className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-display text-xl text-foreground mb-2">Scorpio Moon</h3>
-                <p className="text-muted-foreground">Deep emotional insight, transformative healing</p>
+                <h3 className="font-display text-xl text-foreground mb-2">Lua em Escorpião</h3>
+                <p className="text-muted-foreground">Insight emocional profundo, cura transformadora</p>
               </div>
               <div className="text-center p-6 rounded-lg bg-background">
                 <Sparkles className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="font-display text-xl text-foreground mb-2">Scorpio Rising</h3>
-                <p className="text-muted-foreground">Magnetic presence, intuitive perception</p>
+                <h3 className="font-display text-xl text-foreground mb-2">Ascendente Escorpião</h3>
+                <p className="text-muted-foreground">Presença magnética, percepção intuitiva</p>
               </div>
             </div>
 
@@ -50,45 +50,45 @@ const About = () => {
 
             <div className="prose prose-lg mx-auto text-muted-foreground mt-12">
               <h2 className="font-display text-3xl text-foreground text-center mb-8">
-                The Earth-Water Axis
+                O Eixo Terra-Água
               </h2>
               <p className="text-lg leading-relaxed mb-6">
-                My astrological signature—Taurus Sun with Scorpio Moon and Ascendant—creates a 
-                powerful axis between earth and water, stability and transformation, the visible 
-                and the hidden. This cosmic blueprint informs everything I do.
+                Minha assinatura astrológica — Sol em Touro com Lua e Ascendente em Escorpião — cria um 
+                eixo poderoso entre terra e água, estabilidade e transformação, o visível 
+                e o oculto. Este mapa cósmico informa tudo o que faço.
               </p>
               <p className="text-lg leading-relaxed mb-6">
-                The Taurus Sun grounds my work in practicality and patience. I believe that 
-                spiritual growth must be embodied, integrated into our daily lives rather than 
-                floating in abstract realms. The Scorpio energies bring depth, intensity, and 
-                an unflinching willingness to explore shadow territories where true healing occurs.
+                O Sol em Touro fundamenta meu trabalho em praticidade e paciência. Acredito que 
+                o crescimento espiritual deve ser incorporado, integrado em nossas vidas diárias em vez de 
+                flutuar em reinos abstratos. As energias de Escorpião trazem profundidade, intensidade e 
+                uma disposição destemida para explorar territórios sombrios onde a verdadeira cura ocorre.
               </p>
               
               <h2 className="font-display text-3xl text-foreground text-center mb-8 mt-12">
-                My Spiritual Journey
+                Minha Jornada Espiritual
               </h2>
               <p className="text-lg leading-relaxed mb-6">
-                I discovered Tarot in my early twenties during a period of profound personal 
-                transformation. What began as curiosity quickly became a calling. The cards 
-                became teachers, mirrors reflecting back the patterns of my psyche and the 
-                rhythms of the universe.
+                Descobri o Tarot no início dos meus vinte anos durante um período de profunda transformação 
+                pessoal. O que começou como curiosidade rapidamente se tornou uma vocação. As cartas 
+                se tornaram professoras, espelhos refletindo os padrões da minha psique e os 
+                ritmos do universo.
               </p>
               <p className="text-lg leading-relaxed mb-6">
-                My studies deepened into astrology, revealing how the cosmic dance of planets 
-                echoes within our personal stories. Later, the Kabbalistic Tree of Life offered 
-                a map of consciousness itself—a framework for understanding the journey of the 
-                soul from divine source to earthly manifestation and back again.
+                Meus estudos se aprofundaram na astrologia, revelando como a dança cósmica dos planetas 
+                ecoa em nossas histórias pessoais. Mais tarde, a Árvore da Vida Cabalística ofereceu 
+                um mapa da própria consciência — uma estrutura para entender a jornada da 
+                alma desde a fonte divina até a manifestação terrena e de volta.
               </p>
               
               <h2 className="font-display text-3xl text-foreground text-center mb-8 mt-12">
-                My Commitment
+                Meu Compromisso
               </h2>
               <p className="text-lg leading-relaxed">
-                I approach every session with deep respect for your autonomy and your own inner 
-                wisdom. I am not here to tell you what to do or predict your future—I am here 
-                to help you access your own knowing, to illuminate patterns and possibilities, 
-                and to support you in making choices aligned with your highest self. My practice 
-                is ethical, grounded, and heart-centered.
+                Abordo cada sessão com profundo respeito pela sua autonomia e pela sua própria sabedoria 
+                interior. Não estou aqui para dizer o que fazer ou prever seu futuro — estou aqui 
+                para ajudá-lo a acessar seu próprio conhecimento, iluminar padrões e possibilidades, 
+                e apoiá-lo a fazer escolhas alinhadas com seu eu mais elevado. Minha prática 
+                é ética, fundamentada e centrada no coração.
               </p>
             </div>
           </div>

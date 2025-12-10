@@ -24,19 +24,19 @@ const Oracle = () => {
             </div>
             
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-6">
-              Oracle of the Tree of Life
+              Oráculo da Árvore da Vida
             </h1>
             
             <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-              The Kabbalistic Tree of Life is a map of consciousness, depicting the journey 
-              of divine energy from source to manifestation. Its ten Sephiroth represent 
-              different aspects of existence—from pure spirit to embodied matter.
+              A Árvore da Vida Cabalística é um mapa da consciência, representando a jornada 
+              da energia divina da fonte até a manifestação. Suas dez Sephiroth representam 
+              diferentes aspectos da existência — do espírito puro à matéria incorporada.
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-12">
-              This oracle draws from the wisdom of the Sephiroth to offer you guidance 
-              and reflection. Take a moment to center yourself, then receive your message 
-              from the Tree.
+              Este oráculo extrai da sabedoria das Sephiroth para oferecer orientação 
+              e reflexão. Reserve um momento para se centrar, depois receba sua mensagem 
+              da Árvore.
             </p>
             
             <Button
@@ -44,7 +44,7 @@ const Oracle = () => {
               className="btn-mystical bg-secondary hover:bg-secondary/90 text-secondary-foreground px-10 py-6 text-xl"
             >
               <Sparkles className="mr-2 h-6 w-6" />
-              Receive Guidance
+              Receber Orientação
             </Button>
           </div>
         </div>
@@ -57,21 +57,21 @@ const Oracle = () => {
             <SacredGeometry variant="divider" className="mb-8" />
             
             <h2 className="font-display text-3xl text-foreground text-center mb-8">
-              The Ten Sephiroth
+              As Dez Sephiroth
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { name: "Kether (Crown)", desc: "Divine will, pure consciousness" },
-                { name: "Chokmah (Wisdom)", desc: "Primordial masculine, creative force" },
-                { name: "Binah (Understanding)", desc: "Primordial feminine, receptive form" },
-                { name: "Chesed (Mercy)", desc: "Loving-kindness, expansion" },
-                { name: "Geburah (Strength)", desc: "Discipline, boundaries, power" },
-                { name: "Tiphareth (Beauty)", desc: "Harmony, heart center, balance" },
-                { name: "Netzach (Victory)", desc: "Emotion, desire, nature" },
-                { name: "Hod (Splendor)", desc: "Intellect, communication, thought" },
-                { name: "Yesod (Foundation)", desc: "Subconscious, dreams, connection" },
-                { name: "Malkuth (Kingdom)", desc: "Physical reality, manifestation" },
+                { name: "Kether (Coroa)", desc: "Vontade divina, consciência pura" },
+                { name: "Chokmah (Sabedoria)", desc: "Masculino primordial, força criativa" },
+                { name: "Binah (Entendimento)", desc: "Feminino primordial, forma receptiva" },
+                { name: "Chesed (Misericórdia)", desc: "Bondade amorosa, expansão" },
+                { name: "Geburah (Força)", desc: "Disciplina, limites, poder" },
+                { name: "Tiphareth (Beleza)", desc: "Harmonia, centro do coração, equilíbrio" },
+                { name: "Netzach (Vitória)", desc: "Emoção, desejo, natureza" },
+                { name: "Hod (Esplendor)", desc: "Intelecto, comunicação, pensamento" },
+                { name: "Yesod (Fundamento)", desc: "Subconsciente, sonhos, conexão" },
+                { name: "Malkuth (Reino)", desc: "Realidade física, manifestação" },
               ].map((sephirah) => (
                 <div key={sephirah.name} className="p-4 rounded-lg bg-background border border-border/50">
                   <h3 className="font-display text-lg text-foreground mb-1">{sephirah.name}</h3>
