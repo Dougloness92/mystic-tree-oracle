@@ -11,20 +11,20 @@ import logo from "@/assets/logo.png";
 
 const services = [
   {
-    title: "Tarot Guidance",
-    description: "Uncover insights and clarity through the ancient wisdom of the Tarot archetypes.",
+    title: "Orientação com Tarot",
+    description: "Descubra insights e clareza através da sabedoria ancestral dos arquétipos do Tarot.",
     icon: Sparkles,
     href: "/services/tarot",
   },
   {
-    title: "Astrology Readings",
-    description: "Explore your birth chart and understand the cosmic influences shaping your path.",
+    title: "Leituras de Astrologia",
+    description: "Explore seu mapa astral e entenda as influências cósmicas que moldam seu caminho.",
     icon: Star,
     href: "/services/astrology",
   },
   {
-    title: "Kabbalistic Numerology",
-    description: "Discover the sacred numbers that reveal your life purpose and spiritual gifts.",
+    title: "Numerologia Cabalística",
+    description: "Descubra os números sagrados que revelam seu propósito de vida e dons espirituais.",
     icon: Compass,
     href: "/services/numerology",
   },
@@ -58,22 +58,22 @@ const Index = () => {
             <div className="mb-8 animate-fade-in">
               <img 
                 src={logo} 
-                alt="Celestial Path Holistic Therapy" 
+                alt="Caminho Celestial Terapia Holística" 
                 className="h-48 md:h-64 w-auto mx-auto animate-float"
               />
             </div>
             
             {/* Tagline */}
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Guidance Through{" "}
+              Orientação Através do{" "}
               <span className="text-gradient-wine">Tarot</span>,{" "}
-              <span className="text-gradient-gold">Astrology</span>, and the{" "}
-              <span className="text-accent">Tree of Life</span>
+              <span className="text-gradient-gold">Astrologia</span> e da{" "}
+              <span className="text-accent">Árvore da Vida</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: "0.4s" }}>
-              Embark on a journey of self-discovery and spiritual transformation 
-              with compassionate, grounded guidance.
+              Embarque em uma jornada de autoconhecimento e transformação espiritual 
+              com orientação compassiva e fundamentada.
             </p>
             
             {/* CTA Buttons */}
@@ -83,14 +83,14 @@ const Index = () => {
                 className="btn-mystical bg-secondary hover:bg-secondary/90 text-secondary-foreground px-8 py-6 text-lg"
               >
                 <Sparkles className="mr-2 h-5 w-5" />
-                Receive Guidance
+                Receber Orientação
               </Button>
               <Button
                 asChild
                 variant="outline"
                 className="border-primary/50 text-foreground hover:bg-primary/10 px-8 py-6 text-lg"
               >
-                <Link to="/contact">Book a Session</Link>
+                <Link to="/contact">Agendar Sessão</Link>
               </Button>
             </div>
           </div>
@@ -110,13 +110,13 @@ const Index = () => {
           <div className="max-w-3xl mx-auto text-center">
             <SacredGeometry variant="divider" className="mb-8" />
             <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6">
-              Welcome, Seeker
+              Bem-vindo, Buscador
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              I believe that each of us carries an inner compass—a deep knowing that guides us 
-              toward our highest path. Through the sacred arts of Tarot, Astrology, and the 
-              Kabbalistic Tree of Life, I offer a mirror for your soul, helping you reconnect 
-              with your innate wisdom and navigate life's mysteries with greater clarity and purpose.
+              Acredito que cada um de nós carrega uma bússola interior — um conhecimento profundo que nos guia 
+              em direção ao nosso caminho mais elevado. Através das artes sagradas do Tarot, Astrologia e da 
+              Árvore da Vida Cabalística, ofereço um espelho para sua alma, ajudando você a reconectar-se 
+              com sua sabedoria inata e navegar pelos mistérios da vida com maior clareza e propósito.
             </p>
             <SacredGeometry variant="divider" className="mt-8" />
           </div>
@@ -134,13 +134,13 @@ const Index = () => {
             </div>
             
             <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6">
-              Oracle of the Tree of Life
+              Oráculo da Árvore da Vida
             </h2>
             
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              The ten Sephiroth of the Kabbalistic Tree hold ancient wisdom, each representing 
-              a different aspect of divine consciousness. Click below to receive a message 
-              from the Oracle—a guiding light for your journey.
+              As dez Sephiroth da Árvore da Vida Cabalística guardam sabedoria ancestral, cada uma representando 
+              um aspecto diferente da consciência divina. Clique abaixo para receber uma mensagem 
+              do Oráculo — uma luz guia para sua jornada.
             </p>
             
             <Button
@@ -148,7 +148,7 @@ const Index = () => {
               className="btn-mystical bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-lg"
             >
               <Sparkles className="mr-2 h-5 w-5" />
-              Receive Your Message
+              Receba Sua Mensagem
             </Button>
           </div>
         </div>
@@ -159,10 +159,10 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
-              Sacred Services
+              Serviços Sagrados
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Each session is a sacred space for exploration, healing, and transformation.
+              Cada sessão é um espaço sagrado para exploração, cura e transformação.
             </p>
           </div>
           
@@ -178,7 +178,7 @@ const Index = () => {
               variant="outline"
               className="border-secondary/50 text-foreground hover:bg-secondary/10 px-8 py-6 text-lg"
             >
-              <Link to="/services">View All Services</Link>
+              <Link to="/services">Ver Todos os Serviços</Link>
             </Button>
           </div>
         </div>
@@ -191,11 +191,11 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <blockquote className="max-w-3xl mx-auto text-center">
             <p className="font-display text-2xl md:text-3xl text-foreground italic leading-relaxed mb-6">
-              "As above, so below; as within, so without. The stars mirror our soul, 
-              and the soul reflects the cosmos."
+              "Assim como em cima, assim embaixo; assim como dentro, assim fora. As estrelas espelham nossa alma, 
+              e a alma reflete o cosmos."
             </p>
             <footer className="text-secondary text-lg">
-              — Hermetic Wisdom
+              — Sabedoria Hermética
             </footer>
           </blockquote>
         </div>

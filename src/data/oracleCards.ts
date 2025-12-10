@@ -11,93 +11,93 @@ export interface OracleCard {
 export const oracleCards: OracleCard[] = [
   {
     id: 1,
-    name: "Kether — The Crown",
+    name: "Kether — A Coroa",
     hebrew: "כתר",
     color: "bg-gradient-to-br from-white to-gray-100",
-    message: "A new spiritual cycle begins.",
-    affirmation: "I align with my highest path.",
-    guidance: "You are entering a phase of expanded awareness. The crown chakra opens, inviting divine light into your consciousness. Trust the beginnings that emerge now—they carry the seed of your highest purpose. This is a time of spiritual initiation and pure potential."
+    message: "Um novo ciclo espiritual começa.",
+    affirmation: "Eu me alinho com meu caminho mais elevado.",
+    guidance: "Você está entrando em uma fase de consciência expandida. O chakra coronário se abre, convidando a luz divina para sua consciência. Confie nos começos que surgem agora — eles carregam a semente do seu propósito mais elevado. Este é um tempo de iniciação espiritual e puro potencial."
   },
   {
     id: 2,
-    name: "Chokmah — Wisdom",
+    name: "Chokmah — Sabedoria",
     hebrew: "חכמה",
     color: "bg-gradient-to-br from-gray-400 to-gray-600",
-    message: "Divine wisdom flows through you.",
-    affirmation: "I trust my inner knowing.",
-    guidance: "The primordial force of creation stirs within you. Chokmah represents the first flash of inspiration, the moment before thought takes form. Pay attention to sudden insights and intuitive flashes. The universe speaks to you through symbols, synchronicities, and dreams."
+    message: "A sabedoria divina flui através de você.",
+    affirmation: "Eu confio no meu conhecimento interior.",
+    guidance: "A força primordial da criação se agita dentro de você. Chokmah representa o primeiro lampejo de inspiração, o momento antes do pensamento tomar forma. Preste atenção a insights súbitos e flashes intuitivos. O universo fala com você através de símbolos, sincronicidades e sonhos."
   },
   {
     id: 3,
-    name: "Binah — Understanding",
+    name: "Binah — Entendimento",
     hebrew: "בינה",
     color: "bg-gradient-to-br from-slate-700 to-slate-900",
-    message: "Understanding comes through stillness.",
-    affirmation: "I embrace the wisdom of patience.",
-    guidance: "The Great Mother receives and gives form to all things. This is a time for contemplation, for allowing ideas to gestate. Do not rush. The understanding you seek will come when you create space for it. Honor the darkness as the womb of creation."
+    message: "O entendimento vem através da quietude.",
+    affirmation: "Eu abraço a sabedoria da paciência.",
+    guidance: "A Grande Mãe recebe e dá forma a todas as coisas. Este é um tempo para contemplação, para permitir que as ideias se gestam. Não tenha pressa. O entendimento que você busca virá quando você criar espaço para ele. Honre a escuridão como o útero da criação."
   },
   {
     id: 4,
-    name: "Chesed — Mercy",
+    name: "Chesed — Misericórdia",
     hebrew: "חסד",
     color: "bg-gradient-to-br from-blue-400 to-blue-600",
-    message: "Abundance flows to those who give freely.",
-    affirmation: "I am a channel for divine love.",
-    guidance: "The boundless mercy of the universe pours forth. Chesed asks you to embody generosity, compassion, and loving-kindness. Where can you be more giving? How can you extend grace to yourself and others? This is a time of expansion and receiving through giving."
+    message: "A abundância flui para aqueles que dão livremente.",
+    affirmation: "Eu sou um canal para o amor divino.",
+    guidance: "A misericórdia ilimitada do universo se derrama. Chesed pede que você incorpore generosidade, compaixão e bondade amorosa. Onde você pode ser mais generoso? Como você pode estender graça a si mesmo e aos outros? Este é um tempo de expansão e recebimento através do dar."
   },
   {
     id: 5,
-    name: "Geburah — Strength",
+    name: "Geburah — Força",
     hebrew: "גבורה",
     color: "bg-gradient-to-br from-red-500 to-red-700",
-    message: "True strength lies in discernment.",
-    affirmation: "I honor my boundaries with love.",
-    guidance: "The sword of discernment cuts away what no longer serves. Geburah calls you to set firm boundaries, to say no when necessary, and to honor your limits. This is not harshness—it is the protective love that creates healthy space for growth. Release with gratitude."
+    message: "A verdadeira força está no discernimento.",
+    affirmation: "Eu honro meus limites com amor.",
+    guidance: "A espada do discernimento corta o que não serve mais. Geburah chama você para estabelecer limites firmes, dizer não quando necessário e honrar seus limites. Isso não é dureza — é o amor protetor que cria espaço saudável para o crescimento. Libere com gratidão."
   },
   {
     id: 6,
-    name: "Tiphareth — Beauty",
+    name: "Tiphareth — Beleza",
     hebrew: "תפארת",
     color: "bg-gradient-to-br from-yellow-400 to-amber-500",
-    message: "Your heart is the center of transformation.",
-    affirmation: "I radiate my authentic light.",
-    guidance: "The golden sun of the soul shines at the center of the Tree. Tiphareth represents balance, beauty, and the awakened heart. You are called to integrate all aspects of yourself—light and shadow—into harmonious wholeness. Your authentic self is ready to shine."
+    message: "Seu coração é o centro da transformação.",
+    affirmation: "Eu irradio minha luz autêntica.",
+    guidance: "O sol dourado da alma brilha no centro da Árvore. Tiphareth representa equilíbrio, beleza e o coração desperto. Você é chamado a integrar todos os aspectos de si mesmo — luz e sombra — em uma totalidade harmoniosa. Seu eu autêntico está pronto para brilhar."
   },
   {
     id: 7,
-    name: "Netzach — Victory",
+    name: "Netzach — Vitória",
     hebrew: "נצח",
     color: "bg-gradient-to-br from-emerald-400 to-green-600",
-    message: "Passion guides you toward victory.",
-    affirmation: "I trust my desires as sacred guides.",
-    guidance: "The force of nature, desire, and creative passion moves through you. Netzach celebrates the beauty of emotion and the power of attraction. What do you truly desire? Follow your heart's longing—it knows the way. Art, beauty, and nature are your allies now."
+    message: "A paixão guia você em direção à vitória.",
+    affirmation: "Eu confio nos meus desejos como guias sagrados.",
+    guidance: "A força da natureza, do desejo e da paixão criativa move-se através de você. Netzach celebra a beleza da emoção e o poder da atração. O que você verdadeiramente deseja? Siga o anseio do seu coração — ele conhece o caminho. Arte, beleza e natureza são seus aliados agora."
   },
   {
     id: 8,
-    name: "Hod — Splendor",
+    name: "Hod — Esplendor",
     hebrew: "הוד",
     color: "bg-gradient-to-br from-orange-400 to-orange-600",
-    message: "Words have the power to create reality.",
-    affirmation: "I communicate with clarity and truth.",
-    guidance: "The realm of thought, language, and communication awaits your attention. Hod invites you to examine your beliefs and the words you speak. Are they aligned with your highest vision? This is a time for study, learning, and refining your mental landscape."
+    message: "As palavras têm o poder de criar a realidade.",
+    affirmation: "Eu me comunico com clareza e verdade.",
+    guidance: "O reino do pensamento, linguagem e comunicação aguarda sua atenção. Hod convida você a examinar suas crenças e as palavras que você fala. Elas estão alinhadas com sua visão mais elevada? Este é um tempo para estudo, aprendizado e refinamento da sua paisagem mental."
   },
   {
     id: 9,
-    name: "Yesod — Foundation",
+    name: "Yesod — Fundamento",
     hebrew: "יסוד",
     color: "bg-gradient-to-br from-violet-400 to-purple-600",
-    message: "Your dreams reveal hidden truths.",
-    affirmation: "I trust the guidance of my subconscious.",
-    guidance: "The lunar realm of dreams, intuition, and the subconscious calls to you. Yesod is the gateway between the spiritual and material worlds. Pay close attention to your dreams, your emotional patterns, and the images that arise in meditation. The veil is thin."
+    message: "Seus sonhos revelam verdades ocultas.",
+    affirmation: "Eu confio na orientação do meu subconsciente.",
+    guidance: "O reino lunar dos sonhos, intuição e subconsciente chama por você. Yesod é o portal entre os mundos espiritual e material. Preste muita atenção aos seus sonhos, seus padrões emocionais e às imagens que surgem na meditação. O véu está fino."
   },
   {
     id: 10,
-    name: "Malkuth — Kingdom",
+    name: "Malkuth — Reino",
     hebrew: "מלכות",
     color: "bg-gradient-to-br from-amber-700 to-stone-600",
-    message: "The sacred lives in the everyday.",
-    affirmation: "I honor the divine in all things.",
-    guidance: "The earthly realm of manifestation and physical reality welcomes you. Malkuth reminds you that the spiritual journey culminates in the material world. Ground yourself. Tend to your body, your home, your work. The divine is present in every moment of ordinary life."
+    message: "O sagrado vive no cotidiano.",
+    affirmation: "Eu honro o divino em todas as coisas.",
+    guidance: "O reino terreno da manifestação e realidade física te acolhe. Malkuth lembra que a jornada espiritual culmina no mundo material. Ancore-se. Cuide do seu corpo, da sua casa, do seu trabalho. O divino está presente em cada momento da vida comum."
   }
 ];
 

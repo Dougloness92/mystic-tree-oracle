@@ -19,8 +19,8 @@ const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out. I'll respond within 24-48 hours.",
+      title: "Mensagem Enviada",
+      description: "Obrigada por entrar em contato. Responderei em 24-48 horas.",
     });
     setFormData({ name: "", email: "", message: "" });
   };
@@ -36,10 +36,10 @@ const Contact = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-6">
-              Contact & Booking
+              Contato e Agendamento
             </h1>
             <p className="text-xl text-muted-foreground">
-              Ready to begin your journey? I'd love to hear from you.
+              Pronto para começar sua jornada? Adoraria ouvir de você.
             </p>
           </div>
         </div>
@@ -52,7 +52,7 @@ const Contact = () => {
             {/* Direct Contact */}
             <div>
               <h2 className="font-display text-2xl text-foreground mb-8">
-                Quick Contact
+                Contato Rápido
               </h2>
               
               <div className="space-y-6">
@@ -69,12 +69,12 @@ const Contact = () => {
                     <h3 className="font-display text-lg text-foreground group-hover:text-accent transition-colors">
                       WhatsApp
                     </h3>
-                    <p className="text-muted-foreground">Fastest way to book a session</p>
+                    <p className="text-muted-foreground">Forma mais rápida de agendar uma sessão</p>
                   </div>
                 </a>
                 
                 <a
-                  href="mailto:hello@celestialpath.com"
+                  href="mailto:contato@caminhocelestial.com"
                   className="flex items-center gap-4 p-4 rounded-lg bg-secondary/10 hover:bg-secondary/20 transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
@@ -84,7 +84,7 @@ const Contact = () => {
                     <h3 className="font-display text-lg text-foreground group-hover:text-secondary transition-colors">
                       Email
                     </h3>
-                    <p className="text-muted-foreground">hello@celestialpath.com</p>
+                    <p className="text-muted-foreground">contato@caminhocelestial.com</p>
                   </div>
                 </a>
                 
@@ -101,15 +101,15 @@ const Contact = () => {
                     <h3 className="font-display text-lg text-foreground group-hover:text-primary transition-colors">
                       Instagram
                     </h3>
-                    <p className="text-muted-foreground">@celestialpath.therapy</p>
+                    <p className="text-muted-foreground">@caminhocelestial.terapia</p>
                   </div>
                 </a>
               </div>
               
               <div className="mt-8 p-4 rounded-lg bg-muted/50">
                 <p className="text-muted-foreground text-sm">
-                  <strong>Sessions by appointment only.</strong> Online sessions available worldwide. 
-                  In-person sessions available in select locations.
+                  <strong>Sessões apenas com agendamento prévio.</strong> Sessões online disponíveis mundialmente. 
+                  Sessões presenciais disponíveis em locais selecionados.
                 </p>
               </div>
             </div>
@@ -117,13 +117,13 @@ const Contact = () => {
             {/* Contact Form */}
             <div>
               <h2 className="font-display text-2xl text-foreground mb-8">
-                Send a Message
+                Envie uma Mensagem
               </h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-foreground mb-2">
-                    Your Name
+                    Seu Nome
                   </label>
                   <Input
                     id="name"
@@ -136,7 +136,7 @@ const Contact = () => {
                 
                 <div>
                   <label htmlFor="email" className="block text-foreground mb-2">
-                    Email Address
+                    Endereço de Email
                   </label>
                   <Input
                     id="email"
@@ -150,7 +150,7 @@ const Contact = () => {
                 
                 <div>
                   <label htmlFor="message" className="block text-foreground mb-2">
-                    Your Message
+                    Sua Mensagem
                   </label>
                   <Textarea
                     id="message"
@@ -159,7 +159,7 @@ const Contact = () => {
                     required
                     rows={5}
                     className="bg-background border-border"
-                    placeholder="Tell me a bit about what you're looking for..."
+                    placeholder="Conte-me um pouco sobre o que você está buscando..."
                   />
                 </div>
                 
@@ -167,7 +167,7 @@ const Contact = () => {
                   type="submit"
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg"
                 >
-                  Send Message
+                  Enviar Mensagem
                 </Button>
               </form>
             </div>

@@ -5,32 +5,32 @@ import { SacredGeometry } from "@/components/SacredGeometry";
 import { Moon, Star, Hash, Flame, Sprout, Calendar } from "lucide-react";
 
 const blogCategories = [
-  { name: "Astrology", icon: Moon, color: "text-secondary" },
-  { name: "Tarot Wisdom", icon: Star, color: "text-primary" },
-  { name: "Kabbalistic Numerology", icon: Hash, color: "text-accent" },
-  { name: "Rituals & Energetic Practices", icon: Flame, color: "text-secondary" },
-  { name: "Healing & Self-Development", icon: Sprout, color: "text-accent" },
-  { name: "Monthly Insights", icon: Calendar, color: "text-primary" },
+  { name: "Astrologia", icon: Moon, color: "text-secondary" },
+  { name: "Sabedoria do Tarot", icon: Star, color: "text-primary" },
+  { name: "Numerologia Cabalística", icon: Hash, color: "text-accent" },
+  { name: "Rituais e Práticas Energéticas", icon: Flame, color: "text-secondary" },
+  { name: "Cura e Autodesenvolvimento", icon: Sprout, color: "text-accent" },
+  { name: "Insights Mensais", icon: Calendar, color: "text-primary" },
 ];
 
 const featuredPosts = [
   {
-    title: "Understanding the Full Moon in Scorpio",
-    category: "Astrology",
-    excerpt: "This powerful lunation invites us to explore the depths of our emotional landscape and release what no longer serves...",
-    date: "December 8, 2025",
+    title: "Compreendendo a Lua Cheia em Escorpião",
+    category: "Astrologia",
+    excerpt: "Esta poderosa lunação nos convida a explorar as profundezas da nossa paisagem emocional e liberar o que não serve mais...",
+    date: "8 de Dezembro, 2025",
   },
   {
-    title: "The Hermit: Journey Within",
-    category: "Tarot Wisdom",
-    excerpt: "When The Hermit appears, we are called to withdraw from the noise of the world and seek answers in solitude...",
-    date: "December 5, 2025",
+    title: "O Eremita: Jornada Interior",
+    category: "Sabedoria do Tarot",
+    excerpt: "Quando O Eremita aparece, somos chamados a nos retirar do ruído do mundo e buscar respostas na solidão...",
+    date: "5 de Dezembro, 2025",
   },
   {
-    title: "Your Personal Year Number for 2026",
-    category: "Kabbalistic Numerology",
-    excerpt: "As we approach the new year, discover what themes and opportunities await you based on your personal year cycle...",
-    date: "December 1, 2025",
+    title: "Seu Número do Ano Pessoal para 2026",
+    category: "Numerologia Cabalística",
+    excerpt: "À medida que nos aproximamos do novo ano, descubra quais temas e oportunidades o aguardam baseado no seu ciclo de ano pessoal...",
+    date: "1 de Dezembro, 2025",
   },
 ];
 
@@ -46,10 +46,10 @@ const Blog = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-6">
-              Astrological Blog
+              Blog Astrológico
             </h1>
             <p className="text-xl text-muted-foreground">
-              Insights, teachings, and reflections on the mystical arts
+              Insights, ensinamentos e reflexões sobre as artes místicas
             </p>
           </div>
         </div>
@@ -76,7 +76,7 @@ const Blog = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="font-display text-3xl text-foreground text-center mb-12">
-            Latest Articles
+            Últimos Artigos
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -96,7 +96,7 @@ const Blog = () => {
           
           <div className="text-center mt-12">
             <p className="text-muted-foreground italic">
-              More articles coming soon...
+              Mais artigos em breve...
             </p>
           </div>
         </div>
@@ -107,21 +107,21 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-md mx-auto text-center">
             <h2 className="font-display text-2xl text-foreground mb-6">
-              Sky Today
+              Céu de Hoje
             </h2>
             <div className="card-mystical p-6">
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
                   <Moon className="w-8 h-8 text-secondary mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Moon in Pisces</p>
+                  <p className="text-sm text-muted-foreground">Lua em Peixes</p>
                 </div>
                 <div>
                   <Star className="w-8 h-8 text-secondary mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">Sun in Sagittarius</p>
+                  <p className="text-sm text-muted-foreground">Sol em Sagitário</p>
                 </div>
               </div>
               <p className="text-foreground italic">
-                "Trust your intuition today. The waters run deep, carrying messages from your subconscious."
+                "Confie na sua intuição hoje. As águas correm profundas, carregando mensagens do seu subconsciente."
               </p>
             </div>
           </div>
