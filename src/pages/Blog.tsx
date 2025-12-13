@@ -1,40 +1,77 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SacredGeometry } from "@/components/SacredGeometry";
 import { Moon, Star, Hash, Flame, Sprout, Calendar } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 const blogCategories = [
-  { name: "Astrologia", icon: Moon, color: "text-secondary" },
-  { name: "Sabedoria do Tarot", icon: Star, color: "text-primary" },
-  { name: "Numerologia Cabalística", icon: Hash, color: "text-accent" },
-  { name: "Rituais e Práticas Energéticas", icon: Flame, color: "text-secondary" },
-  { name: "Cura e Autodesenvolvimento", icon: Sprout, color: "text-accent" },
-  { name: "Insights Mensais", icon: Calendar, color: "text-primary" },
+  { name: "Astrologia", key: "astrology", icon: Moon, color: "text-secondary" },
+  { name: "Sabedoria do Tarot", key: "tarot", icon: Star, color: "text-primary" },
+  { name: "Numerologia Cabalística", key: "numerology", icon: Hash, color: "text-accent" },
+  { name: "Rituais e Práticas Energéticas", key: "rituals", icon: Flame, color: "text-secondary" },
+  { name: "Cura e Autodesenvolvimento", key: "healing", icon: Sprout, color: "text-accent" },
+  { name: "Insights Mensais", key: "monthly", icon: Calendar, color: "text-primary" },
 ];
 
-const featuredPosts = [
-  {
-    title: "Compreendendo a Lua Cheia em Escorpião",
-    category: "Astrologia",
-    excerpt: "Esta poderosa lunação nos convida a explorar as profundezas da nossa paisagem emocional e liberar o que não serve mais...",
-    date: "8 de Dezembro, 2025",
-  },
-  {
-    title: "O Eremita: Jornada Interior",
-    category: "Sabedoria do Tarot",
-    excerpt: "Quando O Eremita aparece, somos chamados a nos retirar do ruído do mundo e buscar respostas na solidão...",
-    date: "5 de Dezembro, 2025",
-  },
-  {
-    title: "Seu Número do Ano Pessoal para 2026",
-    category: "Numerologia Cabalística",
-    excerpt: "À medida que nos aproximamos do novo ano, descubra quais temas e oportunidades o aguardam baseado no seu ciclo de ano pessoal...",
-    date: "1 de Dezembro, 2025",
-  },
-];
+interface Post {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  content: string;
+  cover_image_url: string | null;
+  created_at: string;
+}
+
+const categoryLabels: Record<string, string> = {
+  astrology: "Astrologia",
+  tarot: "Sabedoria do Tarot",
+  numerology: "Numerologia Cabalística",
+  rituals: "Rituais e Práticas",
+  healing: "Cura e Autodesenvolvimento",
+  monthly: "Insights Mensais",
+};
 
 const Blog = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchPosts();
+  }, [selectedCategory]);
+
+  const fetchPosts = async () => {
+    setIsLoading(true);
+    let query = supabase
+      .from("posts")
+      .select("id, title, slug, category, content, cover_image_url, created_at")
+      .eq("published", true)
+      .order("created_at", { ascending: false });
+
+    if (selectedCategory) {
+      query = query.eq("category", selectedCategory);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      console.error("Error fetching posts:", error);
+    } else {
+      setPosts(data || []);
+    }
+    setIsLoading(false);
+  };
+
+  const getExcerpt = (content: string) => {
+    const stripped = content.replace(/<[^>]*>/g, "");
+    return stripped.length > 150 ? stripped.substring(0, 150) + "..." : stripped;
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -59,10 +96,25 @@ const Blog = () => {
       <section className="py-12 bg-card">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
+            <button
+              onClick={() => setSelectedCategory(null)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-colors ${
+                selectedCategory === null
+                  ? "bg-secondary text-secondary-foreground border-secondary"
+                  : "bg-background border-border/50 hover:border-secondary/50"
+              }`}
+            >
+              <span className="text-foreground">Todos</span>
+            </button>
             {blogCategories.map((category) => (
               <button
-                key={category.name}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border/50 hover:border-secondary/50 transition-colors"
+                key={category.key}
+                onClick={() => setSelectedCategory(category.key)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-colors ${
+                  selectedCategory === category.key
+                    ? "bg-secondary text-secondary-foreground border-secondary"
+                    : "bg-background border-border/50 hover:border-secondary/50"
+                }`}
               >
                 <category.icon className={`w-4 h-4 ${category.color}`} />
                 <span className="text-foreground">{category.name}</span>
@@ -72,33 +124,50 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Featured Posts */}
+      {/* Posts */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="font-display text-3xl text-foreground text-center mb-12">
-            Últimos Artigos
+            {selectedCategory ? categoryLabels[selectedCategory] : "Últimos Artigos"}
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {featuredPosts.map((post) => (
-              <article key={post.title} className="card-mystical p-6 group cursor-pointer">
-                <span className="text-sm text-secondary mb-2 block">{post.category}</span>
-                <h3 className="font-display text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {post.excerpt}
-                </p>
-                <span className="text-sm text-muted-foreground">{post.date}</span>
-              </article>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground italic">
-              Mais artigos em breve...
-            </p>
-          </div>
+          {isLoading ? (
+            <div className="text-center text-muted-foreground">Carregando...</div>
+          ) : posts.length === 0 ? (
+            <div className="text-center">
+              <p className="text-muted-foreground italic">
+                Nenhum artigo publicado ainda...
+              </p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {posts.map((post) => (
+                <Link to={`/blog/${post.slug}`} key={post.id}>
+                  <article className="card-mystical p-6 group cursor-pointer h-full">
+                    {post.cover_image_url && (
+                      <img
+                        src={post.cover_image_url}
+                        alt={post.title}
+                        className="w-full h-48 object-cover rounded-lg mb-4"
+                      />
+                    )}
+                    <span className="text-sm text-secondary mb-2 block">
+                      {categoryLabels[post.category] || post.category}
+                    </span>
+                    <h3 className="font-display text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      {getExcerpt(post.content)}
+                    </p>
+                    <span className="text-sm text-muted-foreground">
+                      {format(new Date(post.created_at), "d 'de' MMMM, yyyy", { locale: ptBR })}
+                    </span>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
