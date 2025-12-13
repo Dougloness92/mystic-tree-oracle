@@ -1,4 +1,4 @@
-import { Phone, Mail, Instagram, MapPin } from "lucide-react";
+import { Phone, Mail, Instagram } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SacredGeometry } from "@/components/SacredGeometry";
@@ -7,9 +7,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const Contact = () => {
   const { toast } = useToast();
+  const { settings, getWhatsAppUrl, getEmailUrl, getInstagramUrl } = useSiteSettings();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -57,7 +59,7 @@ const Contact = () => {
               
               <div className="space-y-6">
                 <a
-                  href="https://wa.me/1234567890"
+                  href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-lg bg-accent/10 hover:bg-accent/20 transition-colors group"
@@ -74,7 +76,7 @@ const Contact = () => {
                 </a>
                 
                 <a
-                  href="mailto:contato@caminhocelestial.com"
+                  href={getEmailUrl()}
                   className="flex items-center gap-4 p-4 rounded-lg bg-secondary/10 hover:bg-secondary/20 transition-colors group"
                 >
                   <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
@@ -84,12 +86,14 @@ const Contact = () => {
                     <h3 className="font-display text-lg text-foreground group-hover:text-secondary transition-colors">
                       Email
                     </h3>
-                    <p className="text-muted-foreground">contato@caminhocelestial.com</p>
+                    <p className="text-muted-foreground">
+                      {settings.contact_email || "contato@caminhocelestial.com"}
+                    </p>
                   </div>
                 </a>
                 
                 <a
-                  href="https://instagram.com"
+                  href={getInstagramUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors group"
@@ -101,7 +105,9 @@ const Contact = () => {
                     <h3 className="font-display text-lg text-foreground group-hover:text-primary transition-colors">
                       Instagram
                     </h3>
-                    <p className="text-muted-foreground">@caminhocelestial.terapia</p>
+                    <p className="text-muted-foreground">
+                      @{settings.contact_instagram || "caminhocelestial.terapia"}
+                    </p>
                   </div>
                 </a>
               </div>
