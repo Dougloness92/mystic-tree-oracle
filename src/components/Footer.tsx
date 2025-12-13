@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { SacredGeometry } from "./SacredGeometry";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const quickLinks = [
   { name: "Serviços", path: "/services" },
@@ -12,6 +13,8 @@ const quickLinks = [
 ];
 
 export const Footer = () => {
+  const { getWhatsAppUrl, getEmailUrl, getInstagramUrl } = useSiteSettings();
+
   return (
     <footer className="relative bg-card border-t border-border/50">
       <SacredGeometry variant="background" className="opacity-30" />
@@ -47,7 +50,7 @@ export const Footer = () => {
             <h3 className="font-display text-xl text-foreground mb-6">Conecte-se</h3>
             <div className="space-y-4">
               <a
-                href="https://wa.me/1234567890"
+                href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center md:justify-end gap-3 text-muted-foreground hover:text-accent transition-colors text-lg"
@@ -56,14 +59,14 @@ export const Footer = () => {
                 <span>WhatsApp</span>
               </a>
               <a
-                href="mailto:contato@caminhocelestial.com"
+                href={getEmailUrl()}
                 className="flex items-center justify-center md:justify-end gap-3 text-muted-foreground hover:text-secondary transition-colors text-lg"
               >
                 <Mail size={20} />
                 <span>Email</span>
               </a>
               <a
-                href="https://instagram.com"
+                href={getInstagramUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center md:justify-end gap-3 text-muted-foreground hover:text-primary transition-colors text-lg"
