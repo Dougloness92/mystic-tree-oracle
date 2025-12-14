@@ -5,12 +5,20 @@ interface SiteSettings {
   contact_email: string;
   contact_whatsapp: string;
   contact_instagram: string;
+  about_subtitle: string;
+  about_main_text: string;
+  about_how_i_work: string;
+  about_approach: string;
 }
 
 const defaultSettings: SiteSettings = {
   contact_email: "",
   contact_whatsapp: "",
   contact_instagram: "",
+  about_subtitle: "",
+  about_main_text: "",
+  about_how_i_work: "",
+  about_approach: "",
 };
 
 export const useSiteSettings = () => {

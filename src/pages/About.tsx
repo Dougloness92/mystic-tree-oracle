@@ -2,8 +2,15 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SacredGeometry } from "@/components/SacredGeometry";
 import { Sun, Moon, Sparkles } from "lucide-react";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 
 const About = () => {
+  const { settings, isLoading } = useSiteSettings();
+
+  const hasMainContent = settings.about_main_text?.trim();
+  const hasHowIWork = settings.about_how_i_work?.trim();
+  const hasApproach = settings.about_approach?.trim();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -17,9 +24,16 @@ const About = () => {
             <h1 className="font-display text-4xl md:text-5xl text-foreground mb-6">
               Sobre Mim
             </h1>
-            <p className="text-xl text-muted-foreground">
-              Uma jornada de transformação através da terra e da sombra
-            </p>
+            {settings.about_subtitle && (
+              <p className="text-xl text-muted-foreground">
+                {settings.about_subtitle}
+              </p>
+            )}
+            {!settings.about_subtitle && (
+              <p className="text-xl text-muted-foreground">
+                Uma jornada de transformação através da terra e da sombra
+              </p>
+            )}
           </div>
         </div>
       </section>
@@ -49,47 +63,99 @@ const About = () => {
             <SacredGeometry variant="divider" />
 
             <div className="prose prose-lg mx-auto text-muted-foreground mt-12">
-              <h2 className="font-display text-3xl text-foreground text-center mb-8">
-                O Eixo Terra-Água
-              </h2>
-              <p className="text-lg leading-relaxed mb-6">
-                Minha assinatura astrológica — Sol em Touro com Lua e Ascendente em Escorpião — cria um 
-                eixo poderoso entre terra e água, estabilidade e transformação, o visível 
-                e o oculto. Este mapa cósmico informa tudo o que faço.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                O Sol em Touro fundamenta meu trabalho em praticidade e paciência. Acredito que 
-                o crescimento espiritual deve ser incorporado, integrado em nossas vidas diárias em vez de 
-                flutuar em reinos abstratos. As energias de Escorpião trazem profundidade, intensidade e 
-                uma disposição destemida para explorar territórios sombrios onde a verdadeira cura ocorre.
-              </p>
+              {/* Main Text Section */}
+              {hasMainContent ? (
+                <div className="mb-12">
+                  <h2 className="font-display text-3xl text-foreground text-center mb-8">
+                    Minha Jornada
+                  </h2>
+                  {settings.about_main_text.split('\n').map((paragraph, index) => (
+                    paragraph.trim() && (
+                      <p key={index} className="text-lg leading-relaxed mb-6">
+                        {paragraph}
+                      </p>
+                    )
+                  ))}
+                </div>
+              ) : (
+                <>
+                  <h2 className="font-display text-3xl text-foreground text-center mb-8">
+                    O Eixo Terra-Água
+                  </h2>
+                  <p className="text-lg leading-relaxed mb-6">
+                    Minha assinatura astrológica — Sol em Touro com Lua e Ascendente em Escorpião — cria um 
+                    eixo poderoso entre terra e água, estabilidade e transformação, o visível 
+                    e o oculto. Este mapa cósmico informa tudo o que faço.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-6">
+                    O Sol em Touro fundamenta meu trabalho em praticidade e paciência. Acredito que 
+                    o crescimento espiritual deve ser incorporado, integrado em nossas vidas diárias em vez de 
+                    flutuar em reinos abstratos. As energias de Escorpião trazem profundidade, intensidade e 
+                    uma disposição destemida para explorar territórios sombrios onde a verdadeira cura ocorre.
+                  </p>
+                  
+                  <h2 className="font-display text-3xl text-foreground text-center mb-8 mt-12">
+                    Minha Jornada Espiritual
+                  </h2>
+                  <p className="text-lg leading-relaxed mb-6">
+                    Descobri o Tarot no início dos meus vinte anos durante um período de profunda transformação 
+                    pessoal. O que começou como curiosidade rapidamente se tornou uma vocação. As cartas 
+                    se tornaram professoras, espelhos refletindo os padrões da minha psique e os 
+                    ritmos do universo.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-6">
+                    Meus estudos se aprofundaram na astrologia, revelando como a dança cósmica dos planetas 
+                    ecoa em nossas histórias pessoais. Mais tarde, a Árvore da Vida Cabalística ofereceu 
+                    um mapa da própria consciência — uma estrutura para entender a jornada da 
+                    alma desde a fonte divina até a manifestação terrena e de volta.
+                  </p>
+                </>
+              )}
               
-              <h2 className="font-display text-3xl text-foreground text-center mb-8 mt-12">
-                Minha Jornada Espiritual
-              </h2>
-              <p className="text-lg leading-relaxed mb-6">
-                Descobri o Tarot no início dos meus vinte anos durante um período de profunda transformação 
-                pessoal. O que começou como curiosidade rapidamente se tornou uma vocação. As cartas 
-                se tornaram professoras, espelhos refletindo os padrões da minha psique e os 
-                ritmos do universo.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                Meus estudos se aprofundaram na astrologia, revelando como a dança cósmica dos planetas 
-                ecoa em nossas histórias pessoais. Mais tarde, a Árvore da Vida Cabalística ofereceu 
-                um mapa da própria consciência — uma estrutura para entender a jornada da 
-                alma desde a fonte divina até a manifestação terrena e de volta.
-              </p>
-              
-              <h2 className="font-display text-3xl text-foreground text-center mb-8 mt-12">
-                Meu Compromisso
-              </h2>
-              <p className="text-lg leading-relaxed">
-                Abordo cada sessão com profundo respeito pela sua autonomia e pela sua própria sabedoria 
-                interior. Não estou aqui para dizer o que fazer ou prever seu futuro — estou aqui 
-                para ajudá-lo a acessar seu próprio conhecimento, iluminar padrões e possibilidades, 
-                e apoiá-lo a fazer escolhas alinhadas com seu eu mais elevado. Minha prática 
-                é ética, fundamentada e centrada no coração.
-              </p>
+              {/* How I Work Section */}
+              {hasHowIWork && (
+                <div className="mb-12">
+                  <h2 className="font-display text-3xl text-foreground text-center mb-8 mt-12">
+                    Como Trabalho
+                  </h2>
+                  {settings.about_how_i_work.split('\n').map((paragraph, index) => (
+                    paragraph.trim() && (
+                      <p key={index} className="text-lg leading-relaxed mb-6">
+                        {paragraph}
+                      </p>
+                    )
+                  ))}
+                </div>
+              )}
+
+              {/* Approach Section */}
+              {hasApproach ? (
+                <div className="mb-12">
+                  <h2 className="font-display text-3xl text-foreground text-center mb-8 mt-12">
+                    Minha Abordagem
+                  </h2>
+                  {settings.about_approach.split('\n').map((paragraph, index) => (
+                    paragraph.trim() && (
+                      <p key={index} className="text-lg leading-relaxed mb-6">
+                        {paragraph}
+                      </p>
+                    )
+                  ))}
+                </div>
+              ) : !hasMainContent && (
+                <>
+                  <h2 className="font-display text-3xl text-foreground text-center mb-8 mt-12">
+                    Meu Compromisso
+                  </h2>
+                  <p className="text-lg leading-relaxed">
+                    Abordo cada sessão com profundo respeito pela sua autonomia e pela sua própria sabedoria 
+                    interior. Não estou aqui para dizer o que fazer ou prever seu futuro — estou aqui 
+                    para ajudá-lo a acessar seu próprio conhecimento, iluminar padrões e possibilidades, 
+                    e apoiá-lo a fazer escolhas alinhadas com seu eu mais elevado. Minha prática 
+                    é ética, fundamentada e centrada no coração.
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>
