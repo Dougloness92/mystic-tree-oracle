@@ -96,8 +96,8 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        {/* Scroll indicator - hidden on mobile */}
+        <div className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce pointer-events-none">
           <div className="w-6 h-10 rounded-full border-2 border-secondary/50 flex justify-center pt-2">
             <div className="w-1 h-2 bg-secondary/50 rounded-full" />
           </div>
