@@ -41,14 +41,14 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <SacredGeometry variant="background" />
         
-        {/* Floating decorative elements */}
-        <div className="absolute top-1/4 left-10 opacity-20 animate-float">
+        {/* Floating decorative elements - hidden on mobile to avoid button overlap */}
+        <div className="hidden md:block absolute top-1/4 left-10 opacity-20 animate-float pointer-events-none">
           <Moon className="w-12 h-12 text-secondary" />
         </div>
-        <div className="absolute bottom-1/3 right-10 opacity-20 animate-float" style={{ animationDelay: "2s" }}>
+        <div className="hidden md:block absolute bottom-1/3 right-10 opacity-20 animate-float pointer-events-none" style={{ animationDelay: "2s" }}>
           <Sun className="w-16 h-16 text-secondary" />
         </div>
-        <div className="absolute top-1/3 right-1/4 opacity-20 animate-float" style={{ animationDelay: "4s" }}>
+        <div className="hidden md:block absolute top-1/3 right-1/4 opacity-20 animate-float pointer-events-none" style={{ animationDelay: "4s" }}>
           <Star className="w-8 h-8 text-secondary" />
         </div>
         
