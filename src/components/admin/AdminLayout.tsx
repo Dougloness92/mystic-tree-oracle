@@ -9,7 +9,8 @@ import {
   Mail, 
   LogOut,
   Menu,
-  X
+  X,
+  Settings
 } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -23,6 +24,7 @@ const navItems = [
   { href: '/admin/posts', icon: FileText, label: 'Posts' },
   { href: '/admin/comments', icon: MessageSquare, label: 'Comentários' },
   { href: '/admin/feedback', icon: Mail, label: 'Mensagens' },
+  { href: '/admin/settings', icon: Settings, label: 'Configurações' },
 ];
 
 export function AdminLayout({ children }: AdminLayoutProps) {

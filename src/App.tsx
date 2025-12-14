@@ -19,6 +19,7 @@ import AdminPosts from "./pages/admin/AdminPosts";
 import AdminPostEditor from "./pages/admin/AdminPostEditor";
 import AdminComments from "./pages/admin/AdminComments";
 import AdminFeedback from "./pages/admin/AdminFeedback";
+import AdminSettings from "./pages/admin/AdminSettings";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/admin/posts/:id" element={<ProtectedRoute><AdminPostEditor /></ProtectedRoute>} />
             <Route path="/admin/comments" element={<ProtectedRoute><AdminComments /></ProtectedRoute>} />
             <Route path="/admin/feedback" element={<ProtectedRoute><AdminFeedback /></ProtectedRoute>} />
+            <Route path="/admin/settings" element={<ProtectedRoute><AdminSettings /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
