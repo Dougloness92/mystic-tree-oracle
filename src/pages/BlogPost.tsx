@@ -3,10 +3,14 @@ import { useParams, Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SacredGeometry } from "@/components/SacredGeometry";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, Calendar, Loader2 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 const categoryLabels: Record<string, string> = {
   astrology: "Astrologia",
@@ -27,11 +31,26 @@ interface Post {
   created_at: string;
 }
 
+interface Comment {
+  id: string;
+  name: string;
+  content: string;
+  created_at: string;
+}
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<Post | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [commentsLoading, setCommentsLoading] = useState(false);
+  
+  // Comment form state
+  const [commentName, setCommentName] = useState("");
+  const [commentEmail, setCommentEmail] = useState("");
+  const [commentContent, setCommentContent] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (slug) {
@@ -57,8 +76,55 @@ const BlogPost = () => {
       setNotFound(true);
     } else {
       setPost(data);
+      fetchComments(data.id);
     }
     setIsLoading(false);
+  };
+
+  const fetchComments = async (postId: string) => {
+    setCommentsLoading(true);
+    const { data, error } = await supabase
+      .from("comments")
+      .select("id, name, content, created_at")
+      .eq("post_id", postId)
+      .eq("status", "approved")
+      .order("created_at", { ascending: true });
+
+    if (!error && data) {
+      setComments(data);
+    }
+    setCommentsLoading(false);
+  };
+
+  const handleSubmitComment = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!post || !commentName.trim() || !commentContent.trim()) {
+      toast.error("Por favor, preencha seu nome e comentário.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    const { error } = await supabase.from("comments").insert({
+      post_id: post.id,
+      name: commentName.trim(),
+      email: commentEmail.trim() || null,
+      content: commentContent.trim(),
+      status: "pending",
+    });
+
+    if (error) {
+      console.error("Error submitting comment:", error);
+      toast.error("Erro ao enviar comentário. Tente novamente.");
+    } else {
+      toast.success("Comentário enviado! Aguarde aprovação.");
+      setCommentName("");
+      setCommentEmail("");
+      setCommentContent("");
+    }
+    
+    setIsSubmitting(false);
   };
 
   if (isLoading) {
@@ -66,7 +132,7 @@ const BlogPost = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <div className="pt-32 pb-16 text-center">
-          <p className="text-muted-foreground">Carregando...</p>
+          <Loader2 className="h-8 w-8 animate-spin text-primary mx-auto" />
         </div>
         <Footer />
       </div>
@@ -149,11 +215,103 @@ const BlogPost = () => {
       )}
 
       {/* Content */}
-      <section className="py-8 pb-16">
+      <section className="py-8">
         <div className="container mx-auto px-4">
           <article className="max-w-3xl mx-auto prose prose-lg prose-invert prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-secondary prose-strong:text-foreground">
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </article>
+        </div>
+      </section>
+
+      {/* Comments Section */}
+      <section className="py-12 border-t border-border/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            {/* Approved Comments */}
+            {comments.length > 0 && (
+              <div className="mb-12">
+                <h3 className="font-display text-2xl text-foreground mb-6">
+                  Reflexões ({comments.length})
+                </h3>
+                <div className="space-y-6">
+                  {comments.map((comment) => (
+                    <div
+                      key={comment.id}
+                      className="p-4 bg-card/30 rounded-lg border border-border/20"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-medium text-foreground">{comment.name}</span>
+                        <span className="text-xs text-muted-foreground">
+                          {format(new Date(comment.created_at), "d MMM yyyy", { locale: ptBR })}
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {comment.content}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Comment Form */}
+            <div>
+              <h3 className="font-display text-2xl text-foreground mb-4">
+                Deixe sua reflexão
+              </h3>
+              <p className="text-muted-foreground text-sm mb-6">
+                Seu comentário será revisado antes de ser publicado.
+              </p>
+              
+              <form onSubmit={handleSubmitComment} className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Input
+                      placeholder="Seu nome *"
+                      value={commentName}
+                      onChange={(e) => setCommentName(e.target.value)}
+                      required
+                      maxLength={100}
+                      className="bg-card/50 border-border/30"
+                    />
+                  </div>
+                  <div>
+                    <Input
+                      type="email"
+                      placeholder="E-mail (opcional, não será exibido)"
+                      value={commentEmail}
+                      onChange={(e) => setCommentEmail(e.target.value)}
+                      maxLength={255}
+                      className="bg-card/50 border-border/30"
+                    />
+                  </div>
+                </div>
+                <Textarea
+                  placeholder="Compartilhe sua reflexão..."
+                  value={commentContent}
+                  onChange={(e) => setCommentContent(e.target.value)}
+                  required
+                  maxLength={1000}
+                  rows={4}
+                  className="bg-card/50 border-border/30 resize-none"
+                />
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-mystical"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                      Enviando...
+                    </>
+                  ) : (
+                    "Enviar reflexão"
+                  )}
+                </Button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
 
