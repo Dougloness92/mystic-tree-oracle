@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SacredGeometry } from "@/components/SacredGeometry";
-import { ArrowLeft, Calendar, Loader2 } from "lucide-react";
+import { ArrowLeft, Calendar, Loader2, Heart, Sparkles, Leaf } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import { useReactions, ReactionType } from "@/hooks/useReactions";
 
 const categoryLabels: Record<string, string> = {
   astrology: "Astrologia",
@@ -51,6 +52,9 @@ const BlogPost = () => {
   const [commentEmail, setCommentEmail] = useState("");
   const [commentContent, setCommentContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Reactions
+  const { counts, userReaction, toggleReaction, isLoading: reactionsLoading } = useReactions(post?.id);
 
   useEffect(() => {
     if (slug) {
@@ -220,6 +224,45 @@ const BlogPost = () => {
           <article className="max-w-3xl mx-auto prose prose-lg prose-invert prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-secondary prose-strong:text-foreground">
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </article>
+        </div>
+      </section>
+
+      {/* Reactions Section */}
+      <section className="py-8 border-t border-border/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <p className="text-center text-muted-foreground text-sm mb-6">
+              Este conteúdo ressoou com você?
+            </p>
+            <div className="flex justify-center gap-6">
+              {[
+                { type: "heart" as ReactionType, icon: Heart, label: "Coração" },
+                { type: "light" as ReactionType, icon: Sparkles, label: "Luz" },
+                { type: "leaf" as ReactionType, icon: Leaf, label: "Natureza" },
+              ].map(({ type, icon: Icon, label }) => (
+                <button
+                  key={type}
+                  onClick={() => toggleReaction(type)}
+                  disabled={reactionsLoading}
+                  className={`flex flex-col items-center gap-2 p-3 rounded-lg transition-all ${
+                    userReaction === type
+                      ? "bg-secondary/20 text-secondary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-card/50"
+                  }`}
+                  title={label}
+                >
+                  <Icon
+                    className={`w-6 h-6 transition-transform ${
+                      userReaction === type ? "scale-110 fill-current" : ""
+                    }`}
+                  />
+                  {counts[type] > 0 && (
+                    <span className="text-xs">{counts[type]}</span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

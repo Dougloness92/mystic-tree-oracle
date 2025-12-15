@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SacredGeometry } from "@/components/SacredGeometry";
-import { Moon, Star, Hash, Flame, Sprout, Calendar } from "lucide-react";
+import { Moon, Star, Hash, Flame, Sprout, Calendar, Heart, MessageCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
+import { usePostStats } from "@/hooks/useReactions";
 
 const blogCategories = [
   { name: "Astrologia", key: "astrology", icon: Moon, color: "text-secondary" },
@@ -40,6 +41,9 @@ const Blog = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  
+  const postIds = posts.map((p) => p.id);
+  const postStats = usePostStats(postIds);
 
   useEffect(() => {
     fetchPosts();
@@ -160,9 +164,25 @@ const Blog = () => {
                     <p className="text-muted-foreground mb-4 leading-relaxed">
                       {getExcerpt(post.content)}
                     </p>
-                    <span className="text-sm text-muted-foreground">
-                      {format(new Date(post.created_at), "d 'de' MMMM, yyyy", { locale: ptBR })}
-                    </span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-muted-foreground">
+                        {format(new Date(post.created_at), "d 'de' MMMM, yyyy", { locale: ptBR })}
+                      </span>
+                      <div className="flex items-center gap-3 text-muted-foreground/70">
+                        {(postStats[post.id]?.reactions || 0) > 0 && (
+                          <span className="flex items-center gap-1 text-xs">
+                            <Heart className="w-3.5 h-3.5" />
+                            {postStats[post.id]?.reactions}
+                          </span>
+                        )}
+                        {(postStats[post.id]?.comments || 0) > 0 && (
+                          <span className="flex items-center gap-1 text-xs">
+                            <MessageCircle className="w-3.5 h-3.5" />
+                            {postStats[post.id]?.comments}
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   </article>
                 </Link>
               ))}
